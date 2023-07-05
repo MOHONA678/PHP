@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#sidebar {
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+  // top: 0;
+  // left: 0;
+  z-index: 1021;
+  transition: 0.5s;
+  nav {
+    margin-left: -2rem;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      color: #fff;
+      font-weight: 500;
+      list-style: none;
+      li {
+        // padding-left: 1rem;
+        // padding-right: 1rem;
+        // padding-top: 0.375rem;;
+        // padding-bottom: 0.375rem;
+        // background-color: #111827;
+        // &:hover {
+        //   background-color: #1f2937;
+        // }
+        a {
+          padding: 0.375rem 1rem;
+          color: #fff;
+          text-decoration: none;
+          display: flex;
+          transition: margin-left 0.5s;
+          i {
+            width: 1.5rem;
+            height: 1.5rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          span {
+            margin-left: 0.75rem;
+            opacity: 1;
+            white-space: nowrap;
+            transition: margin-left 0.5s ease-out, opacity 0.5s ease-out;
+          }
+        }
+        &:not(:has(a)) {
+          margin: 0.375rem 1rem;
+          font-weight: bold;
+          text-transform: uppercase;
+          border-bottom: 2px solid #ffffff;
+          opacity: 1;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  button {
+    width: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.5rem 1rem;
+    position: sticky;
+    top: 0;
+    span {
+      color: #ffffff;
+      font-weight: bold;
+      margin-left: 0.75rem;
+      opacity: 1;
+      white-space: nowrap;
+      transition: margin-left 0.5s ease-out, opacity 0.5s ease-out;
+    }
+  }
+}
+#sidebar.collapsed {
+  width: 60px;
+  &:hover {
+    width: 250px;
+    nav {
+      ul {
+        li {
+          a {
+            span {
+              opacity: 1;
+              display: inline-block;
+            }
+          }
+          &:not(:has(a)) {
+            margin: 0.375rem 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-bottom: 2px solid #ffffff;
+            opacity: 1;
+            white-space: nowrap;
+            display: inline-block;
+          }
+        }
+      }
+    }
+    button {
+      span {
+        opacity: 1;
+        display: inline-block;
+      }
+    }
+  }
+  nav {
+    ul {
+      li {
+        a {
+          span {
+            opacity: 0;
+            display: none;
+          }
+        }
+        &:not(:has(a)) {
+          opacity: 0;
+          display: none;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+  button {
+    span {
+      opacity: 0;
+      display: none;
+    }
+  }
+}
+.admin-sidebar {
+  background-color: #111827;
+  nav {
+    ul {
+      li {
+        a {
+          &:hover, &.active {
+            background-color: #1f2937;
+          }
+        }
+      }
+    }
+  }
+  button {
+    background: #111827;
+  }
+}
+.vendor-sidebar {
+  background-color: #c2410c;
+  nav {
+    ul {
+      li {
+        a {
+          &:hover, &.active {
+            background-color: #9a3412;
+          }
+        }
+      }
+    }
+  }
+  button {
+    background-color: #c2410c;
+  }
+}
+.customer-sidebar {
+  background-color: #7dd3fc;
+  nav {
+    ul {
+      li {
+        a {
+          &:hover, &.active{
+            background-color: #38bdf8;
+          }
+        }
+      }
+    }
+  }
+  button {
+    background-color: #7dd3fc;
+  }
+}
+#content {
+  margin-left: 250px;
+  transition: margin-left .5s;
+  padding: 0.5rem;
+  @media screen and (max-width : 991.98px) {
+    margin-left: 60px;
+  }
+}
+#content.expanded {
+  margin-left: 60px;
+}
+.pathway {
+  display: block;
+  ol {
+    display: flex;
+    list-style: none;
+    li {
+      margin-right: 0.375rem;
+      :last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
